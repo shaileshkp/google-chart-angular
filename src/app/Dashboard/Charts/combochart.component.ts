@@ -19,7 +19,6 @@ export class ComboChartComponent implements OnInit {
     constructor(private _comboChartService: GoogleComboChartService) {}
 
     ngOnInit(): void {
-        
         this._comboChartService.BuildComboChart(this.elementId, this.data, this.config); 
     }
 }

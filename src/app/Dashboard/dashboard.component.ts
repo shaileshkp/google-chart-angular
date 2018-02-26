@@ -18,30 +18,27 @@ export class DashboardComponent {
   ngOnInit(): void {     
 
     //Piechart1 Data & Config
-    this.data1 = [
-      ['Task', 'Hours per Day'],
-      ['Eat',      3],
-      ['Commute',  2],
-      ['Watch TV', 5],
-      ['Video games', 4],
-      ['Sleep',    10]
-    ];
-
-    this.config1 = new PieChartConfig('My Daily Activities at 20 years old', 0.2);
+    this.config1 = new PieChartConfig('Toppers Marks', 0.2);
     this.elementId1 = 'myPieChart1';
-
+    this.data1 = [
+      ['Class', 'Percentage'],
+      ['10th', 90],
+      ['12th', 90],
+      ['BCA',  86],
+      ['MCA', 95]
+    ];
+    
     //Piechart2 Data & Config
-    this.data2 = [
-      ['Task', 'Hours per Day'],
-      ['Work',     11],
-      ['Eat',      2],
-      ['Commute',  2],
-      ['Watch TV', 2],
-      ['Sleep',    7]
-    ]
 
-    this.config2 = new PieChartConfig('My Daily Activities at 30 years old', 0.4);
+    this.config2 = new PieChartConfig('My Marks', 0.3);
     this.elementId2 = 'myPieChart2';
+    this.data2 = [
+      ['Class', 'Percentage'],
+      ['10th', 60],
+      ['12th', 50],
+      ['BCA',  65],
+      ['MCA', 75]
+    ];
   }
-
+  
 }
