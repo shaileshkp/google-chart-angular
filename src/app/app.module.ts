@@ -8,7 +8,7 @@ import { GoogleComboChartService } from './Services/google-combo-chart.service';
 import { GooglePieChartService } from './Services/google-pie-chart.service';
 import { NgModule } from '@angular/core';
 import { PieChartComponent } from './Dashboard/Charts/piechart.component'
-
+import { ChartService } from './Services/chart-service.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { PieChartComponent } from './Dashboard/Charts/piechart.component'
     AppRoutingModule,
     FormsModule
   ],
-  providers: [GoogleComboChartService,GooglePieChartService],
+  providers: [GoogleComboChartService,GooglePieChartService, ChartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

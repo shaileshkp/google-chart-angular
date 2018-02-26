@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { GooglePieChartService } from './../../Services/google-pie-chart.service';
 import { PieChartConfig } from './../../Models/PieChartConfig';
+import { ChartService } from '../../Services/chart-service.service';
 
 declare var google: any;
 
@@ -11,14 +12,24 @@ declare var google: any;
   templateUrl: './piechart.component.html'
 })
 export class PieChartComponent implements OnInit {
+    data: any[];
+    config: PieChartConfig;
+    elementId: String;
 
-    @Input() data: any[];
-    @Input() config: PieChartConfig;
-    @Input() elementId: String;
-
-    constructor(private _pieChartService: GooglePieChartService) {}
+    constructor(private _pieChartService: GooglePieChartService, private chartService: ChartService) {}
 
     ngOnInit(): void {
+        this.config = new PieChartConfig('Toppers Marks', 0.2);
+        this.elementId = 'myPieChart';
+        this.data = this.chartService.getData();
         this._pieChartService.BuildPieChart(this.elementId, this.data, this.config); 
+    }
+
+    selectChart() {
+        setTimeout(() => {
+            this.data = this.chartService.getData();
+            console.log(this.data)
+            this._pieChartService.BuildPieChart(this.elementId, this.data, this.config); 
+        }, 100);
     }
 }
