@@ -12,7 +12,7 @@ export class GooglePieChartService extends GoogleChartsBaseService {
 
   public BuildPieChart(elementId: String, data: any[], config: PieChartConfig) : void {  
     var chartFunc = () => {
-      var chart = new google.visualization.PieChart(document.getElementById(<string>elementId)); 
+      var chart = new google.visualization.ComboChart(document.getElementById(<string>elementId)); 
       var selectHandler = (e) => {
         var position = chart.getSelection();
         var row = position[0].row;
@@ -20,7 +20,7 @@ export class GooglePieChartService extends GoogleChartsBaseService {
         var selectedData = data[row+1];
         // console.log('Element ID : ', elementId)
         // console.log('Chart selected'+JSON.stringify(position),data[row+1])        
-        this.chartService.selectedChart(selectedData)
+        this.chartService.getSelectedChart(selectedData)
         
         // console.log(this.selectedData)
       }
